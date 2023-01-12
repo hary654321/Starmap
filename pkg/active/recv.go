@@ -83,6 +83,7 @@ func (r *runner) recvChanel(ctx context.Context, tag bool) error {
 				continue
 			}
 			domain := string(dns.Questions[0].Name)
+			ip := ""
 
 			r.hm.Del(domain)
 
@@ -91,6 +92,7 @@ func (r *runner) recvChanel(ctx context.Context, tag bool) error {
 				for _, answers := range dns.Answers {
 					if answers.Class == layers.DNSClassIN {
 						if answers.IP != nil {
+							ip = answers.IP.String()
 							ips = append(ips, answers.IP.String())
 							if util.IsInnerIP(answers.IP.String()) {
 								r.unanswers = append(r.unanswers, domain)
@@ -117,6 +119,7 @@ func (r *runner) recvChanel(ctx context.Context, tag bool) error {
 					atomic.AddUint64(&r.successIndex, 1)
 					r.recver <- RecvResult{
 						Subdomain:    domain,
+						Ip:           ip,
 						Answers:      dns.Answers,
 						ResponseCode: dns.ResponseCode,
 					}

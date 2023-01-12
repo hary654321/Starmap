@@ -232,6 +232,7 @@ func (r *runner) RunEnumeration(uniqueMap map[string]resolve.HostEntry, ctx cont
 						hostEntry := resolve.HostEntry{
 							Host:    result.Subdomain,
 							Source:  "DNS Brute Forcing",
+							Ip:      result.Ip,
 							IpPorts: ipPorts,
 							CNames:  cnames,
 						}
@@ -340,6 +341,7 @@ func (r *runner) RunEnumerationVerify(ctx context.Context) (map[string]resolve.H
 				if !skip {
 					hostEntry := resolve.HostEntry{
 						Host:    result.Subdomain,
+						Ip:      result.Ip,
 						Source:  r.options.UniqueMap[result.Subdomain].Source,
 						CNames:  cnames,
 						IpPorts: ipPorts,

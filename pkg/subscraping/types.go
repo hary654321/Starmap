@@ -75,6 +75,7 @@ type Result struct {
 	Type    ResultType
 	Source  string
 	Value   string
+	Ip      string
 	Error   error
 	IpPorts map[string][]int
 }

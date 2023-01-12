@@ -114,11 +114,11 @@ func writeJSONHostIP(results map[string]resolve.Result, writer io.Writer) error 
 	return nil
 }
 
-// WriteHostNoWildcard writes the output list of subdomain with nW flag to an io.Writer
+// writes the output list of subdomain with nW flag to an io.Writer
 func (o *OutPutter) WriteHostNoWildcard(results map[string]resolve.Result, writer io.Writer) error {
 	hosts := make(map[string]resolve.HostEntry)
 	for host, result := range results {
-		hosts[host] = resolve.HostEntry{Host: result.Host, Source: result.Source}
+		hosts[host] = resolve.HostEntry{Host: result.Host, Source: result.Source, Ip: result.IP}
 	}
 
 	return o.WriteHost(hosts, writer)

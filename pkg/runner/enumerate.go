@@ -24,7 +24,7 @@ var serverDomain = []string{"ns1.", "ns2.", "dns1.", "dns2."}
 
 // EnumerateSingleDomain performs subdomain enumeration against a single domain
 func (r *Runner) EnumerateSingleDomain(ctx context.Context, domain string, outputs []io.Writer) (error, *map[string]resolve.HostEntry, []string) {
-	gologger.Info().Msgf("Enumerating subdomains for %s\n", domain)
+	//gologger.Info().Msgf("Enumerating subdomains for %s\n", domain)
 
 	// Get the API keys for sources from the configuration
 	// and also create the active resolving engine for the domain.
@@ -83,10 +83,10 @@ func (r *Runner) EnumerateSingleDomain(ctx context.Context, domain string, outpu
 						tmp := uniqueMap[subdomain].IpPorts
 						if tmp != nil {
 							tmp = util.MergeIpPortMap(tmp, result.IpPorts)
-							hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: tmp}
+							hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: tmp, Ip: util.GetDomainIp(subdomain), Root: r.options.Domain[0]}
 							uniqueMap[subdomain] = hostEntry
 						} else {
-							hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: result.IpPorts}
+							hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: result.IpPorts, Ip: util.GetDomainIp(subdomain), Root: r.options.Domain[0]}
 							uniqueMap[subdomain] = hostEntry
 						}
 
@@ -95,7 +95,7 @@ func (r *Runner) EnumerateSingleDomain(ctx context.Context, domain string, outpu
 
 				}
 
-				hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: result.IpPorts}
+				hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: result.IpPorts, Ip: util.GetDomainIp(subdomain), Root: r.options.Domain[0]}
 
 				uniqueMap[subdomain] = hostEntry
 
@@ -136,7 +136,7 @@ func (r *Runner) EnumerateSingleDomain(ctx context.Context, domain string, outpu
 		a, _ := enum.ZoneTransfer(domain, domain, nsDomain+domain)
 		if len(a) > 0 {
 			for _, out := range a {
-				hostEntry := resolve.HostEntry{Host: out.Name, Source: out.Source, IpPorts: nil}
+				hostEntry := resolve.HostEntry{Host: out.Name, Source: out.Source, IpPorts: nil, Ip: util.GetDomainIp(out.Name), Root: r.options.Domain[0]}
 				if _, ok := uniqueMap[out.Name]; ok {
 					continue
 				}
@@ -179,7 +179,7 @@ func (r *Runner) EnumerateSingleDomain(ctx context.Context, domain string, outpu
 		gologger.Info().Msgf("A total of %d were collected in passive mode, and %d were verified to be alive", l, len(uniqueMap))
 
 	} else {
-		gologger.Info().Msgf("Passive acquisition end, Found %d subdomains.", len(uniqueMap))
+		//gologger.Info().Msgf("Passive acquisition end, Found %d subdomains.", len(uniqueMap))
 	}
 
 	time.Sleep(5 * time.Second)

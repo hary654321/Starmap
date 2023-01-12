@@ -14,7 +14,6 @@ import (
 	"github.com/projectdiscovery/gologger"
 )
 
-
 type Options struct {
 	Verbose        bool // Verbose flag indicates whether to show verbose output or not
 	NoColor        bool // No-Color disables the colored output
@@ -45,26 +44,25 @@ type Options struct {
 	// ExcludeSources contains the comma-separated sources to not include in the enumeration process
 	ExcludeSources goflags.NormalizedStringSlice `yaml:"exclude-sources,omitempty"`
 	// Resolvers is the comma-separated resolvers to use for enumeration
-	Resolvers      goflags.NormalizedStringSlice `yaml:"resolvers,omitempty"`
-	ResolverList   string                        // ResolverList is a text file containing list of resolvers to use for enumeration
-	Config         string                        // Config contains the location of the config file
-	Proxy          string                        // HTTP proxy
-	RateLimit      int                           // Maximum number of HTTP requests to send per second
-	YAMLConfig 		Providers // YAMLConfig contains the unmarshalled yaml config file
+	Resolvers    goflags.NormalizedStringSlice `yaml:"resolvers,omitempty"`
+	ResolverList string                        // ResolverList is a text file containing list of resolvers to use for enumeration
+	Config       string                        // Config contains the location of the config file
+	Proxy        string                        // HTTP proxy
+	RateLimit    int                           // Maximum number of HTTP requests to send per second
+	YAMLConfig   Providers                     // YAMLConfig contains the unmarshalled yaml config file
 
-	BruteWordlist      string // BruteWordlist is path to a different wordlist file for brute forcing
-	LevelDic      	   string // LevelDic is path to a different wordlist file for brute forcing
-	Level      	   	   int 	// Level Number of blasting subdomain layers
-	Brute			   bool   // Brute Use DNS brute forcing subdomain
-	Number 			   int   // Number of DNS forced subdomains
-	Verify 			   bool   // Verify is DNS authentication
-	DNS                string // DNS server
-	Takeover		   bool   // subdomain takeover
-	SAll               bool   // Request to test each URL (by default, only the URL matching CNAME is requested to test).
-	MaxWildcardChecks  int		// MaxWildcardChecks Number of random domain names
-	MaxIps             int
+	BruteWordlist     string // BruteWordlist is path to a different wordlist file for brute forcing
+	LevelDic          string // LevelDic is path to a different wordlist file for brute forcing
+	Level             int    // Level Number of blasting subdomain layers
+	Brute             bool   // Brute Use DNS brute forcing subdomain
+	Number            int    // Number of DNS forced subdomains
+	Verify            bool   // Verify is DNS authentication
+	DNS               string // DNS server
+	Takeover          bool   // subdomain takeover
+	SAll              bool   // Request to test each URL (by default, only the URL matching CNAME is requested to test).
+	MaxWildcardChecks int    // MaxWildcardChecks Number of random domain names
+	MaxIps            int
 }
-
 
 // ParseOptions parses the command line flags provided by a user
 func ParseOptions() *Options {
@@ -141,13 +139,12 @@ func ParseOptions() *Options {
 		flagSet.StringVar(&options.LevelDic, "ld", "", "Multilevel subdomain dictionary(level > 2 use)\ndns 枚举多级域名的字典文件，当level大于2时候使用，不填则会默认"),
 		flagSet.IntVar(&options.Level, "l", 2, "Number of blasting subdomain layers\n枚举几级域名，默认为二级域名"),
 		flagSet.IntVar(&options.Number, "n", 1, "Number of DNS forced subdomains\ndns爆破每个域名的次数，默认跑一次"),
-		flagSet.BoolVarP(&options.Brute, "brute",  "b",false, "Use DNS brute forcing subdomain(default false)\n被动加 dns 主动爆破(默认不使用)"),
+		flagSet.BoolVarP(&options.Brute, "brute", "b", false, "Use DNS brute forcing subdomain(default false)\n被动加 dns 主动爆破(默认不使用)"),
 		flagSet.BoolVar(&options.Verify, "verify", false, "DNS authentication survival, Export only verified domain names\n验证被动获取的域名，使用后仅输出验证存活的域名"),
 		flagSet.StringVar(&options.DNS, "dns", "cn", "DNS server, cn:China dns, in:International, all:(cn+in DNS), conf:(read ./config/Starmap/config.yaml), Select according to the target. \nDNS服务器，默认国内的服务器(cn)(cn: 表示使用国内的 dns, in:国外 dns，all: 全部内置 dns, conf: 从配置文件 ./config/Starmap/config.yaml获取)，根据目标选择"),
 		flagSet.BoolVarP(&options.RemoveWildcard, "active", "rW", false, "Domain name pan resolution filtering\n爆破时过滤泛解析(default false)"),
 		flagSet.IntVar(&options.MaxWildcardChecks, "mW", 0, "Number of random domain names during universal resolution detection(default len(resolvers)*2)\n泛解析检测时的随机域名数量(default len(resolvers)*2)"),
 		flagSet.IntVar(&options.MaxIps, "mI", 100, "When blasting, if more than a certain number of domain names point to the same IP, it is considered as universal resolution(default 100)\n爆破时如果超出一定数量的域名指向同一个 ip，则认为是泛解析(default 100)"),
-
 	)
 
 	createGroup(flagSet, "takeover", "subdomain takeover",
@@ -188,9 +185,9 @@ func ParseOptions() *Options {
 
 	options.preProcessOptions()
 
-	if !options.Silent {
-		showBanner()
-	}
+	//if !options.Silent {
+	//	showBanner()
+	//}
 
 	// Validate the options passed by the user and if any
 	// invalid options have been used, exit.

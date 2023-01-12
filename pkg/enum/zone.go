@@ -29,6 +29,7 @@ type DNSAnswer struct {
 type DNSRequest struct {
 	Name    string
 	Domain  string
+	Ip      string
 	Records []DNSAnswer
 	Tag     string
 	Source  string

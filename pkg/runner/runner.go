@@ -68,7 +68,8 @@ func (r *Runner) RunEnumeration(ctx context.Context) error {
 	return nil
 }
 
-// EnumerateMultipleDomains enumerates subdomains for multiple domains
+//	enumerates subdomains for multiple domains
+//
 // We keep enumerating subdomains for a given domain until we reach an error
 func (r *Runner) EnumerateMultipleDomains(ctx context.Context, reader io.Reader, outputs []io.Writer) error {
 	scanner := bufio.NewScanner(reader)

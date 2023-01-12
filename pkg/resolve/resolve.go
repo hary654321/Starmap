@@ -9,7 +9,6 @@ import (
 	"github.com/rs/xid"
 )
 
-
 // ResolutionPool is a pool of resolvers created for resolving subdomains
 // for a given host.
 type ResolutionPool struct {
@@ -24,11 +23,13 @@ type ResolutionPool struct {
 
 // HostEntry defines a host with the source
 type HostEntry struct {
-	Host   		string 				`json:"host"`
-	Source 		string 				`json:"source"`
-	IpPorts     map[string][]int	`json:"ip_ports"`
-	CNames  	[]string			`json:"cnames"`
-	TakeOver 	bool				`json:"take_over"`
+	Host     string           `json:"host"`
+	Root     string           `json:"root"`
+	Source   string           `json:"source"`
+	Ip       string           `json:"ip"`
+	IpPorts  map[string][]int `json:"ip_ports"`
+	CNames   []string         `json:"cnames"`
+	TakeOver bool             `json:"take_over"`
 }
 
 // Result contains the result for a host resolution
@@ -76,7 +77,7 @@ const (
 func InitWildcards(r *Resolver, domain string, resolvers []string, maxWildcardChecks int) (error, map[string]struct{}) {
 	// 随机多少个域名
 	if maxWildcardChecks == 0 {
-		maxWildcardChecks = len(resolvers)*2
+		maxWildcardChecks = len(resolvers) * 2
 	}
 
 	wildcardIPs := make(map[string]struct{})
