@@ -2,7 +2,7 @@ package active
 
 import (
 	"fmt"
-	"github.com/ZhuriLab/Starmap/pkg/resolve"
+	"github.com/hary654321/Starmap/pkg/resolve"
 	"testing"
 )
 

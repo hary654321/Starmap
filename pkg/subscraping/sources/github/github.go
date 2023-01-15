@@ -15,8 +15,8 @@ import (
 
 	jsoniter "github.com/json-iterator/go"
 
+	"github.com/hary654321/Starmap/pkg/subscraping"
 	"github.com/projectdiscovery/gologger"
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
 	"github.com/tomnomnom/linkheader"
 )
 

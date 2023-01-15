@@ -9,7 +9,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
+	"github.com/hary654321/Starmap/pkg/subscraping"
 )
 
 // CSRFSubMatchLength CSRF regex submatch length

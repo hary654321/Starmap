@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/ZhuriLab/Starmap/pkg/passive"
-	"github.com/ZhuriLab/Starmap/pkg/resolve"
-	"github.com/ZhuriLab/Starmap/pkg/runner"
+	"github.com/hary654321/Starmap/pkg/passive"
+	"github.com/hary654321/Starmap/pkg/resolve"
+	"github.com/hary654321/Starmap/pkg/runner"
 	"log"
 )
 

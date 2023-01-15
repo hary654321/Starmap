@@ -8,20 +8,19 @@ import (
 	"github.com/projectdiscovery/gologger"
 	"io"
 
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
+	"github.com/hary654321/Starmap/pkg/subscraping"
 	jsoniter "github.com/json-iterator/go"
 )
 
 // Source is the passive scraping agent
 type Source struct{}
 
-
 type respone struct {
-	Subdomain string 	`json:"subdomain"`
-	Type      string	`json:"type"`
-	IP        string    `json:"value"`
-	Ports     []int     `json:"ports"`
-	Tags      []string  `json:"tags"`
+	Subdomain string   `json:"subdomain"`
+	Type      string   `json:"type"`
+	IP        string   `json:"value"`
+	Ports     []int    `json:"ports"`
+	Tags      []string `json:"tags"`
 }
 
 // Run function returns all subdomains found with the service
@@ -65,7 +64,7 @@ func (s *Source) Run(ctx context.Context, domain string, session *subscraping.Se
 			var sub string
 			prefix := data.Subdomain
 			var (
-				ip string
+				ip    string
 				ports []int
 			)
 
@@ -87,9 +86,9 @@ func (s *Source) Run(ctx context.Context, domain string, session *subscraping.Se
 			ipPorts[ip] = ports
 
 			results <- subscraping.Result{
-				Source: s.Name(),
-				Type: subscraping.Subdomain,
-				Value: sub,
+				Source:  s.Name(),
+				Type:    subscraping.Subdomain,
+				Value:   sub,
 				IpPorts: ipPorts,
 			}
 		}

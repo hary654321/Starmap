@@ -2,7 +2,7 @@ package active
 
 import (
 	"context"
-	"github.com/ZhuriLab/Starmap/pkg/active/statusdb"
+	"github.com/hary654321/Starmap/pkg/active/statusdb"
 	"sync/atomic"
 	"time"
 )

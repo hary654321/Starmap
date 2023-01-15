@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
+	"github.com/hary654321/Starmap/pkg/subscraping"
 )
 
 type alienvaultResponse struct {

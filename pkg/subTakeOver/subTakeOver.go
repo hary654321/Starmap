@@ -3,22 +3,22 @@ package subTakeOver
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/ZhuriLab/Starmap/pkg/resolve"
-	"github.com/ZhuriLab/Starmap/pkg/subTakeOver/assets"
+	"github.com/hary654321/Starmap/pkg/resolve"
+	"github.com/hary654321/Starmap/pkg/subTakeOver/assets"
 	"github.com/projectdiscovery/gologger"
 	"sync"
 )
 
 type Options struct {
-	Timeout      	int
-	Ssl         	bool
-	All          	bool
-	Verbose			bool
-	Fingerprints 	[]Fingerprints
+	Timeout      int
+	Ssl          bool
+	All          bool
+	Verbose      bool
+	Fingerprints []Fingerprints
 }
 
 // Process Start processing subTakeOver from the defined options.
-func Process(uniqueMap map[string]resolve.HostEntry, all, verbose bool) map[string]resolve.HostEntry{
+func Process(uniqueMap map[string]resolve.HostEntry, all, verbose bool) map[string]resolve.HostEntry {
 	hostEntrys := make(chan resolve.HostEntry, 99)
 
 	var data []Fingerprints
@@ -27,12 +27,12 @@ func Process(uniqueMap map[string]resolve.HostEntry, all, verbose bool) map[stri
 		gologger.Fatal().Msgf("%s", err)
 	}
 
-	o := &Options {
-		Timeout : 10,
-		Ssl: false,
-		All: all,
+	o := &Options{
+		Timeout:      10,
+		Ssl:          false,
+		All:          all,
 		Fingerprints: data,
-		Verbose: verbose,
+		Verbose:      verbose,
 	}
 
 	wg := new(sync.WaitGroup)

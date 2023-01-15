@@ -4,7 +4,7 @@ package spyse
 import (
 	"context"
 
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
+	"github.com/hary654321/Starmap/pkg/subscraping"
 	spyse "github.com/spyse-com/go-spyse/pkg"
 )
 

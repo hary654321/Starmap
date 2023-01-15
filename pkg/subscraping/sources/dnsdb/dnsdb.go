@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hary654321/Starmap/pkg/subscraping"
 	jsoniter "github.com/json-iterator/go"
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
 )
 
 type dnsdbResponse struct {

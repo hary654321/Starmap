@@ -1,11 +1,11 @@
 package active
 
 import (
-	"github.com/ZhuriLab/Starmap/pkg/active/device"
-	"github.com/ZhuriLab/Starmap/pkg/active/statusdb"
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
 	"github.com/google/gopacket/pcap"
+	"github.com/hary654321/Starmap/pkg/active/device"
+	"github.com/hary654321/Starmap/pkg/active/statusdb"
 	"github.com/projectdiscovery/gologger"
 	"net"
 	"sync/atomic"

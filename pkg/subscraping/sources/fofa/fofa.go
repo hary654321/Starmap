@@ -5,18 +5,18 @@ import (
 	"context"
 	"encoding/base64"
 	"fmt"
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
-	"github.com/ZhuriLab/Starmap/pkg/util"
+	"github.com/hary654321/Starmap/pkg/subscraping"
+	"github.com/hary654321/Starmap/pkg/util"
 	jsoniter "github.com/json-iterator/go"
 	"strconv"
 	"strings"
 )
 
 type fofaResponse struct {
-	Error   bool     		`json:"error"`
-	ErrMsg  string   		`json:"errmsg"`
-	Size    int      		`json:"size"`
-	Results []interface{} 	`json:"results"`
+	Error   bool          `json:"error"`
+	ErrMsg  string        `json:"errmsg"`
+	Size    int           `json:"size"`
+	Results []interface{} `json:"results"`
 }
 
 // Source is the passive scraping agent
@@ -56,7 +56,6 @@ func (s *Source) Run(ctx context.Context, domain string, session *subscraping.Se
 			return
 		}
 
-
 		if response.Size > 0 {
 			subdomains := make(map[string][]string)
 
@@ -89,9 +88,9 @@ func (s *Source) Run(ctx context.Context, domain string, session *subscraping.Se
 				}
 
 				results <- subscraping.Result{
-					Source: s.Name(),
-					Type: subscraping.Subdomain,
-					Value: subdomain,
+					Source:  s.Name(),
+					Type:    subscraping.Subdomain,
+					Value:   subdomain,
 					IpPorts: ipPorts,
 				}
 			}

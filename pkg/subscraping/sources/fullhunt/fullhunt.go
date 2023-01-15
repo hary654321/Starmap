@@ -4,11 +4,11 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hary654321/Starmap/pkg/subscraping"
 	jsoniter "github.com/json-iterator/go"
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
 )
 
-//fullhunt response
+// fullhunt response
 type fullHuntResponse struct {
 	Hosts   []string `json:"hosts"`
 	Message string   `json:"message"`

@@ -1,27 +1,27 @@
 package active
 
 import (
-	"github.com/ZhuriLab/Starmap/pkg/resolve"
+	"github.com/hary654321/Starmap/pkg/resolve"
 	"github.com/projectdiscovery/gologger"
 	"strconv"
 )
 
 type Options struct {
-	Rate         int64
-	Domain       string
-	FileName     string // 字典文件名
-	Resolvers    []string
-	Output       string // 输出文件名
+	Rate          int64
+	Domain        string
+	FileName      string // 字典文件名
+	Resolvers     []string
+	Output        string // 输出文件名
 	Silent        bool
 	WildcardIPs   map[string]struct{}
 	WildcardIPsAc map[string]struct{}
-	MaxIPs       int
-	TimeOut      int
-	Retry        int
-	Method       string // verify模式 enum模式 test模式
-	Level        int
-	LevelDomains []string
-	UniqueMap    map[string]resolve.HostEntry
+	MaxIPs        int
+	TimeOut       int
+	Retry         int
+	Method        string // verify模式 enum模式 test模式
+	Level         int
+	LevelDomains  []string
+	UniqueMap     map[string]resolve.HostEntry
 }
 
 func Band2Rate(bandWith string) int64 {
@@ -47,4 +47,3 @@ func Band2Rate(bandWith string) int64 {
 	rate = rate / packSize
 	return rate
 }
-

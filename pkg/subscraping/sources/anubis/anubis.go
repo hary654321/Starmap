@@ -5,8 +5,8 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hary654321/Starmap/pkg/subscraping"
 	jsoniter "github.com/json-iterator/go"
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
 )
 
 // Source is the passive scraping agent

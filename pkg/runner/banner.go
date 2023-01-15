@@ -1,8 +1,8 @@
 package runner
 
 import (
-	"github.com/ZhuriLab/Starmap/pkg/passive"
-	"github.com/ZhuriLab/Starmap/pkg/resolve"
+	"github.com/hary654321/Starmap/pkg/passive"
+	"github.com/hary654321/Starmap/pkg/resolve"
 	"github.com/logrusorgru/aurora"
 	"github.com/projectdiscovery/gologger"
 )
@@ -23,7 +23,7 @@ const Version = `v0.2.0`
 func showBanner() {
 	gologger.Print().Msgf("%s\n", aurora.Blue(banner))
 	gologger.Print().Msgf("\t\t\t\t%s\n", aurora.Red(Version))
-	gologger.Print().Msgf("\t\t\t%s\n\n", aurora.Green("https://github.com/ZhuriLab/Starmap"))
+	gologger.Print().Msgf("\t\t\t%s\n\n", aurora.Green("https://github.com/hary654321/Starmap"))
 
 	gologger.Print().Msgf(aurora.Red("Use with caution. You are responsible for your actions").String())
 	gologger.Print().Msgf(aurora.Red("Developers assume no liability and are not responsible for any misuse or damage.").String())

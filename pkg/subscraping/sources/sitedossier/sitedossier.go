@@ -10,7 +10,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
+	"github.com/hary654321/Starmap/pkg/subscraping"
 )
 
 // SleepRandIntn is the integer value to get the pseudo-random number

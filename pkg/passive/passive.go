@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
+	"github.com/hary654321/Starmap/pkg/subscraping"
 )
 
 // EnumerateSubdomains enumerates all the subdomains for a given domain

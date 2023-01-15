@@ -15,7 +15,7 @@
     -   zoomeyeapi 获取 ip
 
 # 🍺 Installation
-下载二进制 https://github.com/ZhuriLab/Starmap/releases
+下载二进制 https://github.com/hary654321/Starmap/releases
 
 安装`libpcap`环境 
 - Windows 下载 npcap 驱动: https://npcap.com/#download (ksubdomain 推荐下载的winpcap驱动存在一点问题，我在虚拟机中跑不出任何东西，改用 npcap 驱动可以)
@@ -112,9 +112,9 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"github.com/ZhuriLab/Starmap/pkg/passive"
-	"github.com/ZhuriLab/Starmap/pkg/resolve"
-	"github.com/ZhuriLab/Starmap/pkg/runner"
+	"github.com/hary654321/Starmap/pkg/passive"
+	"github.com/hary654321/Starmap/pkg/resolve"
+	"github.com/hary654321/Starmap/pkg/runner"
 	"io"
 	"io/ioutil"
 	"log"

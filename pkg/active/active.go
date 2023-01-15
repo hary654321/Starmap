@@ -2,8 +2,8 @@ package active
 
 import (
 	"context"
-	"github.com/ZhuriLab/Starmap/pkg/resolve"
-	"github.com/ZhuriLab/Starmap/pkg/util"
+	"github.com/hary654321/Starmap/pkg/resolve"
+	"github.com/hary654321/Starmap/pkg/util"
 	"github.com/projectdiscovery/gologger"
 )
 

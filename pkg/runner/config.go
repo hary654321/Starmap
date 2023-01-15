@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
+	"github.com/hary654321/Starmap/pkg/subscraping"
 	"gopkg.in/yaml.v3"
 )
 

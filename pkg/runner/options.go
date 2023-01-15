@@ -10,7 +10,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/ZhuriLab/Starmap/pkg/goflags"
+	"github.com/hary654321/Starmap/pkg/goflags"
 	"github.com/projectdiscovery/gologger"
 )
 

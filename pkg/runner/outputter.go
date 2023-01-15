@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/ZhuriLab/Starmap/pkg/resolve"
+	"github.com/hary654321/Starmap/pkg/resolve"
 	jsoniter "github.com/json-iterator/go"
 )
 

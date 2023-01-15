@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
+	"github.com/hary654321/Starmap/pkg/subscraping"
 	jsoniter "github.com/json-iterator/go"
 )
 

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/ZhuriLab/Starmap/pkg/subscraping"
+	"github.com/hary654321/Starmap/pkg/subscraping"
 )
 
 // Source is the passive scraping agent
