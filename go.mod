@@ -1,4 +1,4 @@
-module github.com/ZhuriLab/Starmap
+module github.com/hary654321/Starmap
 
 go 1.17
 

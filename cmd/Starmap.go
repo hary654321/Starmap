@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"github.com/ZhuriLab/Starmap/pkg/runner"
+	"github.com/hary654321/Starmap/pkg/runner"
 	"github.com/projectdiscovery/gologger"
 )
 
