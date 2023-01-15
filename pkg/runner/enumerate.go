@@ -83,10 +83,10 @@ func (r *Runner) EnumerateSingleDomain(ctx context.Context, domain string, outpu
 						tmp := uniqueMap[subdomain].IpPorts
 						if tmp != nil {
 							tmp = util.MergeIpPortMap(tmp, result.IpPorts)
-							hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: tmp, Ip: util.GetDomainIp(subdomain), Root: r.options.Domain[0]}
+							hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: tmp, Ip: util.GetDomainIp(subdomain), Root: domain}
 							uniqueMap[subdomain] = hostEntry
 						} else {
-							hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: result.IpPorts, Ip: util.GetDomainIp(subdomain), Root: r.options.Domain[0]}
+							hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: result.IpPorts, Ip: util.GetDomainIp(subdomain), Root: domain}
 							uniqueMap[subdomain] = hostEntry
 						}
 
@@ -95,7 +95,7 @@ func (r *Runner) EnumerateSingleDomain(ctx context.Context, domain string, outpu
 
 				}
 
-				hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: result.IpPorts, Ip: util.GetDomainIp(subdomain), Root: r.options.Domain[0]}
+				hostEntry := resolve.HostEntry{Host: subdomain, Source: result.Source, IpPorts: result.IpPorts, Ip: util.GetDomainIp(subdomain), Root: domain}
 
 				uniqueMap[subdomain] = hostEntry
 
@@ -136,7 +136,7 @@ func (r *Runner) EnumerateSingleDomain(ctx context.Context, domain string, outpu
 		a, _ := enum.ZoneTransfer(domain, domain, nsDomain+domain)
 		if len(a) > 0 {
 			for _, out := range a {
-				hostEntry := resolve.HostEntry{Host: out.Name, Source: out.Source, IpPorts: nil, Ip: util.GetDomainIp(out.Name), Root: r.options.Domain[0]}
+				hostEntry := resolve.HostEntry{Host: out.Name, Source: out.Source, IpPorts: nil, Ip: util.GetDomainIp(out.Name), Root: domain}
 				if _, ok := uniqueMap[out.Name]; ok {
 					continue
 				}

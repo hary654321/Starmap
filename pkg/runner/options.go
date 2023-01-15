@@ -199,6 +199,66 @@ func ParseOptions() *Options {
 	return options
 }
 
+// ParseOptions parses the command line flags provided by a user
+func DefaultOptions() *Options {
+	options := &Options{}
+
+	//createGroup(flagSet, "rate-limit", "Rate-limit",
+	//	flagSet.IntVarP(&options.RateLimit, "rate-limit", "rl", 0, "maximum number of http requests to send per second"),
+	//	flagSet.IntVar(&options.Threads, "t", 10, "number of concurrent goroutines for resolving (-active only)"),
+	//)
+	options.RateLimit = 0
+	options.Threads = 10
+
+	options.OutputDirectory = ""
+	options.CaptureSources = false
+	options.HostIP = false
+
+	options.Resolvers = nil
+	options.ResolverList = ""
+
+	options.NoColor = false
+	options.ListSources = false
+
+	//createGroup(flagSet, "optimization", "Optimization",
+	//	flagSet.IntVar(&options.Timeout, "timeout", 30, "seconds to wait before timing out"),
+	//	flagSet.IntVar(&options.MaxEnumerationTime, "max-time", 10, "minutes to wait for enumeration results"),
+	//)
+	options.Timeout = 30
+	options.MaxEnumerationTime = 10
+
+	// Default output is stdout
+	options.Output = os.Stdout
+
+	// Check if stdin pipe was given
+	options.Stdin = hasStdin()
+
+	// Read the inputs and configure the logging
+	options.ConfigureOutput()
+
+	if options.Version {
+		gologger.Info().Msgf("Current Version: %s\n", Version)
+		//os.Exit(0)
+	}
+	config, _ := GetConfigDirectory()
+	options.Config = path.Join(config, "config.yaml")
+	// Check if the application loading with any provider configuration, then take it
+	// Otherwise load the default provider config
+	if !CheckConfigExists(options.Config) {
+		options.firstRunTasks()
+	} else {
+		options.normalRunTasks()
+	}
+	if options.ListSources {
+		listSources(options)
+		//os.Exit(0)
+	}
+
+	options.preProcessOptions()
+
+	return options
+}
+
 func isFatalErr(err error) bool {
 	return err != nil && !errors.Is(err, io.EOF)
 }
