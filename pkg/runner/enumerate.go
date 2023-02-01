@@ -255,8 +255,8 @@ func (r *Runner) EnumerateSingleDomain(ctx context.Context, domain string, outpu
 	}
 
 	// Show found subdomain count in any case.
-	duration := durafmt.Parse(time.Since(now)).LimitFirstN(maxNumCount).String()
+	//duration := durafmt.Parse(time.Since(now)).LimitFirstN(maxNumCount).String()
 
-	gologger.Info().Msgf("Found %d subdomains for %s in %s\n", len(uniqueMap), domain, duration)
+	//gologger.Info().Msgf("Found %d subdomains for %s in %s\n", len(uniqueMap), domain, duration)
 	return nil, &uniqueMap, unanswers
 }
