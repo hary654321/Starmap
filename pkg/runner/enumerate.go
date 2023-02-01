@@ -41,7 +41,7 @@ func (r *Runner) EnumerateSingleDomain(ctx context.Context, domain string, outpu
 	//}
 
 	// Run the passive subdomain enumeration
-	now := time.Now()
+	//now := time.Now()
 	passiveResults := r.passiveAgent.EnumerateSubdomains(domain, &keys, r.options.Proxy, r.options.RateLimit, r.options.Timeout, time.Duration(r.options.MaxEnumerationTime)*time.Minute)
 
 	wg := &sync.WaitGroup{}
