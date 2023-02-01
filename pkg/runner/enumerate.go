@@ -4,18 +4,16 @@ import (
 	"context"
 	"github.com/hary654321/Starmap/pkg/active"
 	"github.com/hary654321/Starmap/pkg/enum"
+	"github.com/hary654321/Starmap/pkg/resolve"
 	"github.com/hary654321/Starmap/pkg/subTakeOver"
+	"github.com/hary654321/Starmap/pkg/subscraping"
 	"github.com/hary654321/Starmap/pkg/util"
 	"github.com/projectdiscovery/dnsx/libs/dnsx"
+	"github.com/projectdiscovery/gologger"
 	"io"
 	"strings"
 	"sync"
 	"time"
-
-	"github.com/hako/durafmt"
-	"github.com/hary654321/Starmap/pkg/resolve"
-	"github.com/hary654321/Starmap/pkg/subscraping"
-	"github.com/projectdiscovery/gologger"
 )
 
 const maxNumCount = 2
