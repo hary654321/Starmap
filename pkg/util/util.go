@@ -2,7 +2,6 @@ package util
 
 import (
 	"bufio"
-	"fmt"
 	"github.com/hary654321/Starmap/pkg/resolve"
 	"math/rand"
 	"net"
@@ -134,7 +133,7 @@ func IsInnerIP(ip string) bool {
 func GetDomainIp(domain string) string {
 	addr, err := net.ResolveIPAddr("ip", domain)
 	if err != nil {
-		fmt.Println("Resolution error", err.Error())
+		//fmt.Println("Resolution error", err.Error())
 		return ""
 	}
 	ip := addr.IP.String()
