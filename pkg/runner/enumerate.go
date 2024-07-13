@@ -2,6 +2,11 @@ package runner
 
 import (
 	"context"
+	"io"
+	"strings"
+	"sync"
+	"time"
+
 	"github.com/hary654321/Starmap/pkg/active"
 	"github.com/hary654321/Starmap/pkg/enum"
 	"github.com/hary654321/Starmap/pkg/resolve"
@@ -10,10 +15,6 @@ import (
 	"github.com/hary654321/Starmap/pkg/util"
 	"github.com/projectdiscovery/dnsx/libs/dnsx"
 	"github.com/projectdiscovery/gologger"
-	"io"
-	"strings"
-	"sync"
-	"time"
 )
 
 const maxNumCount = 2
@@ -41,7 +42,7 @@ func (r *Runner) EnumerateSingleDomain(ctx context.Context, domain string, outpu
 	//}
 
 	// Run the passive subdomain enumeration
-	now := time.Now()
+
 	passiveResults := r.passiveAgent.EnumerateSubdomains(domain, &keys, r.options.Proxy, r.options.RateLimit, r.options.Timeout, time.Duration(r.options.MaxEnumerationTime)*time.Minute)
 
 	wg := &sync.WaitGroup{}

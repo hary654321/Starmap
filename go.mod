@@ -7,7 +7,6 @@ require (
 	github.com/cnf/structhash v0.0.0-20201127153200-e1b16c1ebc08
 	github.com/corpix/uarand v0.1.1
 	github.com/google/gopacket v1.1.19
-	github.com/hako/durafmt v0.0.0-20210608085754-5c1018a4e16b
 	github.com/json-iterator/go v1.1.12
 	github.com/lib/pq v1.10.4
 	github.com/logrusorgru/aurora v2.0.3+incompatible
